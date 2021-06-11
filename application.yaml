@@ -1,0 +1,13 @@
+- name: "Install and setup webserver"
+  hosts: webserver
+  become_user: root
+  become: yes
+  become_method: sudo
+  gather_facts: true  
+  vars_files:
+    - vars.yml 
+
+  roles: 
+    - common
+    - webserver   
+
