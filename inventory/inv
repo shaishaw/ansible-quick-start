@@ -1,0 +1,5 @@
+[webserver]
+dev
+
+[webserver:vars]
+httpd_version=latest

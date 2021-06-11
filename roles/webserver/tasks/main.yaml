@@ -1,0 +1,15 @@
+- block:
+  - name: install apache
+    yum:
+      name: httpd
+      state: "{{ httpd_version }}"
+  - name: start service
+    service:
+      name: httpd
+      state: started
+      enabled: yes
+  - name: "copy files to web dir"
+    copy:
+      src:  files/index.html
+      dest: /var/www/    
+        

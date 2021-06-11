@@ -1,0 +1,17 @@
+- block:
+  - name: update package manager
+    yum:
+      name: '*'
+      state: latest
+      update_only: yes
+        #ignore_errors: yes
+  - name: "create user"
+    user:
+      name: "{{ default_user }}"
+      state: present   
+  - name: "create default dirs"
+    file:
+      path: "{{ item }}"
+      state: directory
+    with_items:
+      - "{{ default_dirs  }}"       
